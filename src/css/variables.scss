@@ -1,0 +1,57 @@
+$mobile-padding: 16px;
+
+$max-width: 1440px; //максимальная ширина сайта - дальше не растягивается
+
+$tablet-width: 1023px; //режим планшета
+$phone-width: 639px; //режим телефона
+$phone-5: 320px; //iphone 5
+
+@function vwSize($size, $width:1440px) {
+  @return $size * 100 / $width + vw;
+}
+
+@function vhSize($size, $height:1024px) {
+  @return $size * 100 / $height + vh;
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($prop, $min-font-size, $max-font-size, $min-vw:1024px, $max-vw:1440px) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      #{$prop}: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        #{$prop}: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        #{$prop}: $max-font-size;
+      }
+    }
+  }
+}
+
+@mixin fluid-type-height($prop,$min-font-size, $max-font-size, $min-vh:528px, $max-vh:1024px) {
+  $u1: unit($min-vh);
+  $u2: unit($max-vh);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      #{$prop}: $min-font-size;
+      @media screen and (min-height: $min-vh) {
+        #{$prop}: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vh - #{$min-vh}) / #{strip-unit($max-vh - $min-vh)}));
+      }
+      @media screen and (min-height: $max-vh) {
+        #{$prop}: $max-font-size;
+      }
+    }
+  }
+}

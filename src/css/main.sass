@@ -1,0 +1,148 @@
+@import './variables.scss'
+
+body, html
+  padding: 0
+  margin: 0
+  background-color: white
+  height: 100%
+  overflow: hidden
+
+body
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,Noto Sans Armenian,Noto Sans Bengali,Noto Sans Cherokee,Noto Sans Devanagari,Noto Sans Ethiopic,Noto Sans Georgian,Noto Sans Hebrew,Noto Sans Kannada,Noto Sans Khmer,Noto Sans Lao,Noto Sans Osmanya,Noto Sans Tamil,Noto Sans Telugu,Noto Sans Thai,sans-serif
+  font-size: 18px
+
+
+//START slider__indicator__wrp
+.slider__indicator__wrp
+  position: fixed
+  top: 24px
+  z-index: 20
+  width: 720px
+  transform: translateX(-50%)
+  left: 50%
+  display: flex
+
+.slider__indicator
+  flex: 1
+  height: 4px
+  background-color: #ccc
+  border-radius: 4px
+  position: relative
+  cursor: pointer
+
+.slider__indicator .fill
+  border-radius: inherit
+  height: inherit
+  background-color: #222
+  width: 0px
+
+.slider__indicator + .slider__indicator
+  margin-left: 8px
+
+@media all and (max-width: 760px)
+  .slider__indicator__wrp
+    top: 12px
+    left: $mobile-padding
+    right: $mobile-padding
+    transform: none
+    width: auto
+  .slider__indicator
+    height: 2px
+    border-radius: 2px
+  .slider__indicator + .slider__indicator
+    margin-left: 4px
+
+//END slider__indicator__wrp
+
+
+//START SLIDER
+.slider__wrp
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: red
+  z-index: 5
+
+.slider
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  opacity: 0
+  pointer-events: none
+  display: flex
+  align-items: center
+  justify-content: center
+
+.slider.active
+  opacity: 1
+  pointer-events: auto
+
+.slider__content__wrp
+  flex: 0
+  background-color: yellow
+
+.slider__content
+  position: relative
+  width: 200px
+  //@include fluid-type-height(width, 500px, 720px)
+
+.slider__img
+  display: block
+  width: 100%
+  opacity: 0
+  pointer-events: none
+
+.slider__data
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  display: flex
+  align-items: center
+  font-weight: bold
+  font-size: 25px
+  line-height: 1.2
+
+@media all and (min-height: 400px)
+  .slider__content
+    width: 330px
+  .slider__data
+    font-size: 44px
+
+@media all and (min-height: 600px)
+  .slider__content
+    width: 430px
+  .slider__data
+    font-size: 60px
+
+@media all and (min-height: 700px)
+  .slider__content
+    width: 530px
+  .slider__data
+    font-size: 74px
+
+@media all and (min-height: 800px)
+  .slider__content
+    width: 600px
+  .slider__data
+    font-size: 84px
+
+@media all and (min-height: 900px)
+  .slider__content
+    width: 720px
+  .slider__data
+    font-size: 100px
+
+@media all and (max-width: $phone-width)
+  .slider__content
+    width: 100vw !important
+  .slider__data
+    padding-left: $mobile-padding
+    padding-right: $mobile-padding
+    font-size: 12vw !important
+//END SLIDER

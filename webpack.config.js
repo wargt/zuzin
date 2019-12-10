@@ -8,8 +8,13 @@ require('@babel/register')
 
 module.exports = {
   mode: 'production',
+  resolve: {
+    alias: {
+      '~': path.resolve(__dirname, 'src')
+    },
+  },
   entry: {
-    main: './src/index.js'
+    main: './src/js/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'public'),

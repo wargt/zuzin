@@ -3,46 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
 </head>
 <body>
-  <div>
-    <div>hello world 123 456</div>
-    <table>
-      <tr>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>6</td>
-        <td>567</td>
-        <td>56</td>
-      </tr>
-      <tr>
-        <td>75</td>
-        <td>67</td>
-        <td>567</td>
-        <td>57</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>675</td>
-        <td>67</td>
-        <td>567</td>
-      </tr>
-      <tr>
-        <td>56</td>
-        <td>7yr</td>
-        <td>tg</td>
-        <td>rt
-        ge
-        gd
-        rg
-        </td>
-      </tr>
-    </table>
+  <div class="slider__indicator__wrp">
+    <div class="slider__indicator" id="js-slide-indicator-1">
+      <div class="fill"></div>
+    </div>
+    <div class="slider__indicator" id="js-slide-indicator-2">
+      <div class="fill"></div>
+    </div>
+    <div class="slider__indicator" id="js-slide-indicator-3">
+      <div class="fill"></div>
+    </div>
+    <div class="slider__indicator" id="js-slide-indicator-4">
+      <div class="fill"></div>
+    </div>
+  </div>
+
+  <div class="slider__wrp">
+    <div class="slider active">
+      <div class="slider__content__wrp">
+        <div class="slider__content">
+          <img class="slider__img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==">
+          <div class="slider__data">
+            Hi! My&nbsp;name <br>
+            is&nbsp;Dima Zyuzin. <br>
+            I&rsquo;m a&nbsp;designer <br>
+            at&nbsp;Paxful.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider">slide 2</div>
+    <div class="slider">slide 3</div>
+    <div class="slider">slide 4</div>
   </div>
 </body>
 </html>
