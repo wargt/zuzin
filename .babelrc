@@ -1,0 +1,9 @@
+{
+  "presets": ["@babel/preset-env"],
+  "env": {
+    "production": {
+      "presets": ["minify"]
+    }
+  },
+  "plugins": ["transform-inline-environment-variables"]
+}

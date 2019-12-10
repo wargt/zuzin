@@ -1,0 +1,26 @@
+# dependencies
+node_modules
+coverage/
+test/e2e/reports/
+test/e2e/logs/
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
+
+.DS_Store
+
+# webStorm folder .idea
+.idea
+
+# VisualStudioCode folder .vscode
+.vscode
+
+static/sw.js
+
+package-lock.json
