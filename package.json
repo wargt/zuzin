@@ -33,7 +33,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-script": "rm -rf dist && npx webpack --config webpack.config.js",
+    "build-script": "rm -rf public && npx webpack --config webpack.config.js",
     "build": "APP_ENV=PRODUCTION npm run build-script",
     "dev": "APP_ENV=DEV webpack-dev-server --config webpack.config.js --open",
     "send-to-minio": "node ./src/minio.js"
