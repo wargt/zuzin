@@ -13,6 +13,11 @@ module.exports = {
       '~': path.resolve(__dirname, 'src')
     },
   },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   entry: {
     main: './src/js/index.js'
   },

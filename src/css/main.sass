@@ -8,9 +8,8 @@ body, html
   overflow: hidden
 
 body
-  font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,Noto Sans Armenian,Noto Sans Bengali,Noto Sans Cherokee,Noto Sans Devanagari,Noto Sans Ethiopic,Noto Sans Georgian,Noto Sans Hebrew,Noto Sans Kannada,Noto Sans Khmer,Noto Sans Lao,Noto Sans Osmanya,Noto Sans Tamil,Noto Sans Telugu,Noto Sans Thai,sans-serif
+  font-family: Helvetica Neue,-apple-system,BlinkMacSystemFont,Roboto,sans-serif
   font-size: 18px
-
 
 //START slider__indicator__wrp
 .slider__indicator__wrp
@@ -62,7 +61,6 @@ body
   left: 0
   right: 0
   bottom: 0
-  background-color: red
   z-index: 5
 
 .slider
@@ -83,12 +81,10 @@ body
 
 .slider__content__wrp
   flex: 0
-  background-color: yellow
 
 .slider__content
   position: relative
   width: 200px
-  //@include fluid-type-height(width, 500px, 720px)
 
 .slider__img
   display: block
@@ -146,3 +142,30 @@ body
     padding-right: $mobile-padding
     font-size: 12vw !important
 //END SLIDER
+
+
+//MENU
+.menu__wrp
+  position: fixed
+  bottom: 24px
+  width: 26px
+  left: 50%
+  transform: translateX(-50%)
+
+.menu__line
+  height: 4px
+  background-color: #222
+  border-radius: 4px
+
+.menu__line + .menu__line
+  margin-top: 5px
+
+@media all and (max-width: $phone-width)
+  .menu__wrp
+    width: 16px
+  .menu__line
+    height: 2px
+    border-radius: 2px
+  .menu__line + .menu__line
+    margin-top: 4px
+//END MENU
