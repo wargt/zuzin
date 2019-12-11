@@ -13,6 +13,12 @@ body
   font-family: Helvetica Neue,-apple-system,BlinkMacSystemFont,Roboto,sans-serif
   font-size: 18px
 
+a,
+a:focus,
+a:active
+  outline: none
+  border: none
+
 //START slider__indicator__wrp
 .slider__indicator__wrp
   position: fixed
@@ -190,14 +196,39 @@ body
   width: 32px
   left: 50%
   transform: translateX(-50%)
+  z-index: 40
+  cursor: pointer
 
 .menu__line
   height: 3px
   background-color: #222
   border-radius: 4px
+  transition: transform 0.2s
 
 .menu__line + .menu__line
   margin-top: 8px
+
+.opened__menu
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: white
+  z-index: 30
+  display: flex
+  align-items: center
+  justify-content: center
+
+.menu__link + .menu__link
+  margin-top: 8vh
+
+.menu__wrp.opened .menu__line:nth-child(2)
+  margin-top: -2px
+  transform: rotate(-45deg)
+
+.menu__wrp.opened .menu__line:nth-child(1)
+  transform: rotate(45deg)
 
 @media all and (max-width: $phone-width)
   .menu__wrp

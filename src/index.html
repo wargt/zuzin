@@ -15,9 +15,21 @@
   <!-- og -->
 </head>
 <body>
-  <div class="menu__wrp">
+  <div class="menu__wrp" id="js-menu-icon">
     <div class="menu__line"></div>
     <div class="menu__line"></div>
+  </div>
+
+  <div class="opened__menu" style="display: none" id="js-menu">
+    <div class="slider__content">
+      <div class="slider__data">
+        <div class="links__wrp" style="text-align: center">
+          <a href="#" class="link menu__link" onclick="changeSlideClicked(0)">Who</a>
+          <a href="#" class="link menu__link" onclick="changeSlideClicked(1)">Experience</a>
+          <a href="#" class="link menu__link" onclick="changeSlideClicked(3)">Contacts</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="slider__indicator__wrp">

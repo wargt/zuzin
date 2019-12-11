@@ -9,6 +9,10 @@ window.linkClicked = (e) => {
   e.stopPropagation()
 }
 
+window.changeSlideClicked = (slideIndex) => {
+  window.slider.changeSlideClicked(slideIndex)
+}
+
 class Slider {
 
   constructor () {
@@ -46,6 +50,8 @@ class Slider {
     this.animateSlide()
 
     $$('#js-slider-wrp').el.addEventListener('click', this.nextClicked.bind(this))
+
+    $$('#js-menu-icon').el.addEventListener('click', this.menuClicked.bind(this))
   }
 
   addSlideItem (args) {
@@ -126,8 +132,37 @@ class Slider {
 
     this.animateSlide()
   }
+
+  changeSlideClicked (slideIndex) {
+
+    const slide = this.slides[this.activeSlideIndex]
+
+    if (slide) {
+      slide.stopAnimation()
+    }
+
+    this.activeSlideIndex = slideIndex
+
+    this.animateSlide()
+
+    this.menuClicked()
+  }
+
+  menuClicked () {
+    const $$menu = $$('#js-menu-icon')
+
+    if ($$menu.hasClass('opened')) {
+      $$menu.removeClass('opened')
+      $$('#js-menu').hide()
+    } else {
+      $$menu.addClass('opened')
+      $$('#js-menu').css({
+        display: 'flex'
+      })
+    }
+  }
 }
 
-new Slider()
+window.slider = new Slider()
 
 
