@@ -13,6 +13,7 @@
     "babel-polyfill": "^6.26.0",
     "css-loader": "^3.3.0",
     "eslint": "^6.3.0",
+    "file-loader": "^5.0.2",
     "html-inline-css-webpack-plugin": "^1.8.0",
     "html-minifier-webpack-plugin": "^2.2.1",
     "html-webpack-inline-plugin": "^0.0.4",

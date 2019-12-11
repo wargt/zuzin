@@ -1,9 +1,13 @@
 export default class SlideItem {
 
-  constructor ({ elIndicator, elSlide, animationTime}) {
+  constructor ({ elIndicator, elSlide, animationTime = 5000, animateSlideFn, beforeAnimateSlideFn, afterAnimateSlideFn }) {
     this.elIndicator = elIndicator
     this.elSlide = elSlide
     this.animationTime = animationTime
+    this.animateSlideFn = animateSlideFn
+    this.beforeAnimateSlideFn = beforeAnimateSlideFn
+    this.afterAnimateSlideFn = afterAnimateSlideFn
+    this.$$activeIndicator = null
   }
 
   animateSlide (index) {
@@ -33,13 +37,76 @@ export default class SlideItem {
         $$($slide).removeClass('active')
       }
 
+      this.beforeAnimateSlide()
+
       // включим активный слайд
       $$slide.addClass('active')
 
+      this.startAnimateAdditional()
+
       // анимация активного индикатора
-      $$indicator.find('.fill').transition({
+      this.$$activeIndicator = $$indicator.find('.fill')
+
+      this.$$activeIndicator.transition({
         width: '100%'
-      }, this.animationTime, 'linear', resolve)
+      }, this.animationTime, 'linear', () => {
+
+        this.$$activeIndicator = null
+
+        resolve()
+
+        this.afterAnimateSlide()
+      })
     })
+  }
+
+  beforeAnimateSlide () {
+
+    if (typeof this.beforeAnimateSlideFn === 'function') {
+
+      this.beforeAnimateSlideFn({
+        elIndicator: this.elIndicator,
+        elSlide: this.elSlide,
+        animationTime: this.animationTime
+      })
+    }
+  }
+
+  startAnimateAdditional () {
+    if (typeof this.animateSlideFn === 'function') {
+
+      this.animateSlideFn({
+        elIndicator: this.elIndicator,
+        elSlide: this.elSlide,
+        animationTime: this.animationTime
+      })
+    }
+  }
+
+  afterAnimateSlide () {
+
+    setTimeout(() => {
+
+      if (typeof this.afterAnimateSlideFn === 'function') {
+
+        this.afterAnimateSlideFn({
+          elIndicator: this.elIndicator,
+          elSlide: this.elSlide,
+          animationTime: this.animationTime
+        })
+      }
+
+    }, 200)
+  }
+
+  stopAnimation () {
+
+    if (!this.$$activeIndicator) {
+      return
+    }
+
+    this.$$activeIndicator.stopAnimation()
+
+    this.afterAnimateSlide()
   }
 }

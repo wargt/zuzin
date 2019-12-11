@@ -6,6 +6,8 @@ body, html
   background-color: white
   height: 100%
   overflow: hidden
+  color: #111
+  user-select: none
 
 body
   font-family: Helvetica Neue,-apple-system,BlinkMacSystemFont,Roboto,sans-serif
@@ -85,6 +87,7 @@ body
 .slider__content
   position: relative
   width: 200px
+  //background-color: yellow
 
 .slider__img
   display: block
@@ -103,6 +106,40 @@ body
   font-weight: bold
   font-size: 25px
   line-height: 1.2
+
+.bg__slide
+  position: absolute
+  top: -20vw
+  left: -26vw
+  right: -30vw
+  bottom: -20vw
+  transform: rotate(-15deg) scale(2)
+
+.bg__slide__img
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-size: 786px auto
+
+.links__wrp
+  position: relative
+  left: -1vh
+
+.link
+  color: inherit
+  text-decoration: none
+  display: inline-block
+  padding-left: 1vh
+  padding-right: 1vh
+
+.link + .link
+  margin-top: 1vh
+
+.link:hover
+  background-color: #111
+  color: white
 
 @media all and (min-height: 400px)
   .slider__content
@@ -132,7 +169,7 @@ body
   .slider__content
     width: 720px
   .slider__data
-    font-size: 100px
+    font-size: 92px
 
 @media all and (max-width: $phone-width)
   .slider__content
@@ -141,6 +178,8 @@ body
     padding-left: $mobile-padding
     padding-right: $mobile-padding
     font-size: 12vw !important
+  .bg__slide
+    background-size: 650px auto
 //END SLIDER
 
 

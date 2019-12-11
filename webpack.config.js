@@ -37,6 +37,11 @@ module.exports = {
         test: /\.(sass|scss)$/,
         use:  [  'style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
       },
+      {
+        test: /\.(png|jpg|gif|webp)$/,
+        loader: 'file-loader',
+        options: { name: '[name].[ext]?[hash]' }
+      },
     ]
   },
   plugins: [
@@ -47,10 +52,10 @@ module.exports = {
       'process.env.APP_ENV': JSON.stringify(process.env.APP_ENV || 'PRODUCTION')
     }),
     new HtmlWebpackPlugin({
-      title: 'Dima Zuzin',
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/index.html'),
       minify: {
+        removeComments: true,
         collapseWhitespace: true
       },
       inlineSource: '.(js|css)$' // embed all javascript and css inline
@@ -58,7 +63,7 @@ module.exports = {
     new HtmlWebpackInlineSourcePlugin(),
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'public'),
     compress: true,
     disableHostCheck: true,
     host: '0.0.0.0',

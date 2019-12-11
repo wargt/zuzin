@@ -2,8 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <title>Dmitrii Ziuzin. Digital Products Designer</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+
+  <link rel="icon" href="<%=require('~/img/favicon.png').default%>">
+
+  <!-- og -->
+  <meta property="og:title" content="Dmitrii Ziuzin">
+  <meta property="og:description" content="Digital Products Designer">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="<%=require('~/img/og.jpg').default%>">
+  <!-- og -->
 </head>
 <body>
   <div class="menu__wrp">
@@ -26,7 +35,7 @@
     </div>
   </div>
 
-  <div class="slider__wrp">
+  <div class="slider__wrp" id="js-slider-wrp">
 
     <!--slide 1-->
     <div class="slider active" id="js-slide-1">
@@ -34,37 +43,21 @@
         <div class="slider__content">
           <img class="slider__img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==">
           <div class="slider__data">
-            Hi! My&nbsp;name <br>
-            is&nbsp;Dima Zyuzin. <br>
-            I&rsquo;m a&nbsp;designer <br>
-            at&nbsp;Paxful.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--slide 1-->
-    <div class="slider active" id="js-slide-1">
-      <div class="slider__content__wrp">
-        <div class="slider__content">
-          <img class="slider__img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==">
-          <div class="slider__data">
-            Hi! My&nbsp;name <br>
-            is&nbsp;Dima Zyuzin. <br>
-            I&rsquo;m a&nbsp;designer <br>
-            at&nbsp;Paxful.
+            Hey! My&nbsp;name <br>
+            is&nbsp;Dmitrii Ziuzin <br>
+            I&rsquo;m a&nbsp;designer
           </div>
         </div>
       </div>
     </div>
 
     <!--slide 2-->
-    <div class="slider active" id="js-slide-2">
+    <div class="slider" id="js-slide-2">
       <div class="slider__content__wrp">
         <div class="slider__content">
           <img class="slider__img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==">
           <div class="slider__data">
-            I&rsquo;m 8&nbsp;year <br>
+            I&rsquo;m 9&nbsp;year <br>
             experienced <br>
             digital product <br>
             designer
@@ -74,23 +67,25 @@
     </div>
 
     <!--slide 3-->
-    <div class="slider active" id="js-slide-3">
-      <div class="slider__content__wrp">
-        image bg
+    <div class="slider" id="js-slide-3">
+      <div class="bg__slide">
+        <div class="bg__slide__img" style="background-image: url(<%=require('~/img/background.png').default%>)"></div>
       </div>
     </div>
 
     <!--slide 4-->
-    <div class="slider active" id="js-slide-4">
+    <div class="slider" id="js-slide-4">
       <div class="slider__content__wrp">
         <div class="slider__content">
           <img class="slider__img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==">
           <div class="slider__data">
-            Telegram <br>
-            Facebook <br>
-            Instagram <br>
-            Dribbble <br>
-            Linked In
+            <div class="links__wrp">
+              <a href="https://t.me/dzyuzin" class="link" onclick="linkClicked(event)">Telegram</a>
+              <a href="https://www.facebook.com/dimazyuzin" class="link" onclick="linkClicked(event)">Facebook</a>
+              <a href="https://www.instagram.com/dzyuzin/" class="link" onclick="linkClicked(event)">Instagram</a>
+              <a href="https://dribbble.com/dzyuzin" class="link" onclick="linkClicked(event)">Dribbble</a>
+              <a href="https://www.linkedin.com/in/dimazyuzin/" class="link" onclick="linkClicked(event)">Linked In</a>
+            </div>
           </div>
         </div>
       </div>

@@ -139,6 +139,10 @@ export default class AnimateElement {
       this.transitionTimeout = null
     }
 
+    this.each(element => {
+      element.style[this.c.support.transition] = null
+    })
+
     return this
   }
 
