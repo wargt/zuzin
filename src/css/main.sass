@@ -23,7 +23,7 @@ body
 
 .slider__indicator
   flex: 1
-  height: 4px
+  height: 3px
   background-color: #ccc
   border-radius: 4px
   position: relative
@@ -147,25 +147,26 @@ body
 //MENU
 .menu__wrp
   position: fixed
-  bottom: 24px
-  width: 26px
+  bottom: 42px
+  width: 32px
   left: 50%
   transform: translateX(-50%)
 
 .menu__line
-  height: 4px
+  height: 3px
   background-color: #222
   border-radius: 4px
 
 .menu__line + .menu__line
-  margin-top: 5px
+  margin-top: 8px
 
 @media all and (max-width: $phone-width)
   .menu__wrp
-    width: 16px
+    width: 24px
+    bottom: 24px
   .menu__line
     height: 2px
     border-radius: 2px
   .menu__line + .menu__line
-    margin-top: 4px
+    margin-top: 6px
 //END MENU
