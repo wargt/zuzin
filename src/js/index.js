@@ -94,7 +94,7 @@ class Slider {
     this.$bgAnimEl.transition({
       scale: 1,
       rotate: '-15deg'
-    }, animationTime - 1000, 'linear')
+    }, animationTime, 'linear')
   }
 
   afterAnimateBg () {
