@@ -9,8 +9,13 @@ window.linkClicked = (e) => {
   e.stopPropagation()
 }
 
-window.changeSlideClicked = (slideIndex) => {
+window.changeSlideClicked = (e, slideIndex) => {
+  e.stopPropagation()
+  e.preventDefault()
+
   window.slider.changeSlideClicked(slideIndex)
+
+  return false
 }
 
 class Slider {
@@ -23,13 +28,13 @@ class Slider {
     this.addSlideItem({
       elIndicator: '#js-slide-indicator-1',
       elSlide: '#js-slide-1',
-      animationTime: 5000
+      animationTime: 6000
     })
 
     this.addSlideItem({
       elIndicator: '#js-slide-indicator-2',
       elSlide: '#js-slide-2',
-      animationTime: 5000
+      animationTime: 6000
     })
 
     this.addSlideItem({
@@ -38,13 +43,13 @@ class Slider {
       beforeAnimateSlideFn: this.beforeAnimateBg,
       animateSlideFn: this.animateBg,
       afterAnimateSlideFn: this.afterAnimateBg,
-      animationTime: 8000
+      animationTime: 7000
     })
 
     this.addSlideItem({
       elIndicator: '#js-slide-indicator-4',
       elSlide: '#js-slide-4',
-      animationTime: 8000
+      animationTime: 7000
     })
 
     this.animateSlide()
@@ -82,7 +87,7 @@ class Slider {
   beforeAnimateBg ({ elSlide }) {
 
     $$(elSlide).find('.bg__slide').css({
-      scale: 2,
+      scale: 1.5,
       rotate: '-15deg'
     })
   }
@@ -92,9 +97,9 @@ class Slider {
     this.$bgAnimEl = $$(elSlide).find('.bg__slide')
 
     this.$bgAnimEl.transition({
-      scale: 1,
+      scale: 0.8,
       rotate: '-15deg'
-    }, animationTime, 'linear')
+    }, animationTime, 'ease-out')
   }
 
   afterAnimateBg () {
@@ -104,13 +109,11 @@ class Slider {
     }
 
     this.$bgAnimEl.stopAnimation().css({
-      scale: 2,
+      scale: 1.5,
       rotate: '-15deg'
     })
 
     this.$bgAnimEl = null
-
-    console.log('afterAnimateBg')
   }
 
   nextClicked () {
